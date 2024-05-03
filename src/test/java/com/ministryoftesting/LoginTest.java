@@ -19,7 +19,9 @@ public class LoginTest {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+        options.addArguments("--headless",
+                "--ignore-certificate-errors",
+                "--allow-running-insecure-content");
         WebDriver driver = new ChromeDriver(options);
 
         driver.get("http://localhost:8080");

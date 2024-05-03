@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -27,6 +28,8 @@ public class LoginTest {
         WebDriver driver = new ChromeDriver(options);
 
         driver.get("http://localhost:8080");
+
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         driver.findElement(By.name("email")).sendKeys("admin@test.com");
         driver.findElement(By.name("password")).sendKeys("password123");

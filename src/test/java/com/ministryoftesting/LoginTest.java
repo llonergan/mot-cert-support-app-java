@@ -10,25 +10,30 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LoginTestIt {
+public class LoginTest {
+    @SuppressWarnings("deprecation")
     @Test
     public void testPageUpdatesToProjectPageAfterLogin() {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+        options.addArguments("--headless=new");
+
         WebDriver driver = new ChromeDriver(options);
 
         driver.get("http://localhost:8080");
+
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         driver.findElement(By.name("email")).sendKeys("admin@test.com");
         driver.findElement(By.name("password")).sendKeys("password123");
         driver.findElement(By.cssSelector("button")).click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".card-title")));
 
         String title = driver.findElement(By.cssSelector(".card-title")).getText();

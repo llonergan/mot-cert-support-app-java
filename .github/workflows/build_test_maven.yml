@@ -19,4 +19,4 @@ jobs:
         run: |
           java -jar target//mot-cert-support-app-java-0.1-exec.jar &
           sleep 10
-          mvn test -Dtest=LoginTestIt
+          mvn test -Dtest=LoginTest

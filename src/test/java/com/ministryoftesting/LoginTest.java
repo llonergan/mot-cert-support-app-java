@@ -13,7 +13,7 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LoginTestIt {
+public class LoginTest {
     @Test
     public void testPageUpdatesToProjectPageAfterLogin() {
         WebDriverManager.chromedriver().setup();

@@ -21,7 +21,8 @@ public class LoginTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless",
                 "--ignore-certificate-errors",
-                "--allow-running-insecure-content");
+                "--allow-running-insecure-content",
+                "--window-size=1920,1080");
         WebDriver driver = new ChromeDriver(options);
 
         driver.get("http://localhost:8080");

@@ -15,15 +15,13 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginTest {
+    @SuppressWarnings("deprecation")
     @Test
     public void testPageUpdatesToProjectPageAfterLogin() {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new",
-                "--ignore-certificate-errors",
-                "--allow-running-insecure-content",
-                "--window-size=1920,1080");
+        options.addArguments("--headless=new");
 
         WebDriver driver = new ChromeDriver(options);
 

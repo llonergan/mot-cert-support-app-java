@@ -19,10 +19,11 @@ public class LoginTest {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless",
+        options.addArguments("--headless=new",
                 "--ignore-certificate-errors",
                 "--allow-running-insecure-content",
                 "--window-size=1920,1080");
+
         WebDriver driver = new ChromeDriver(options);
 
         driver.get("http://localhost:8080");

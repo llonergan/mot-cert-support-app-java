@@ -18,5 +18,12 @@ jobs:
       - name: Run E2E checks
         run: |
           java -jar target//mot-cert-support-app-java-0.1-exec.jar &
-          sleep 20
+          sleep 10
           mvn test -Dtest=LoginTest
+      - name: Test Reporter
+        uses: dorny/test-reporter@v1.9.0
+        if: success() || failure()
+        with:
+          name: Tests
+          path: target/surefire-reports/*.xml
+          reporter: java-junit

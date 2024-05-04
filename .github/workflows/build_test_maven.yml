@@ -22,7 +22,8 @@ jobs:
           mvn test -Dtest=LoginTest
       - name: Test Reporter
         uses: dorny/test-reporter@v1.9.0
-        if: always()
+        if: success() || failure()
         with:
-          path: |
-            target/surefire-reports/*.xml
+          name: Tests
+          path: target/surefire-reports/*.xml
+          reporter: java-junit

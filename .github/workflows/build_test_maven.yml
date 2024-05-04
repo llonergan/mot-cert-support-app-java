@@ -24,5 +24,5 @@ jobs:
         uses: dorny/test-reporter@v1.9.0
         if: always()
         with:
-          report_paths: |
+          path: |
             target/surefire-reports/*.xml
